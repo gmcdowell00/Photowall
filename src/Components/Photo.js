@@ -8,14 +8,22 @@ function Photo(props) {
             <img className='photo' src={post.imageLink} alt={post.description} crossOrigin="Anonymous"/>
             <figcaption><p>{post.description}</p></figcaption>
             <div className='button-container'>
-                <button className='remove-button' onClick={() => {props.onRemovePhoto(post)}}>Remove</button>
+                <button className='remove-button' onClick={() => {
+                    props.removePost(props.index);
+                }}>Remove</button>
             </div>
         </figure>    
 }
 
+function mapStatetoProps(state) {
+    return {
+        posts : state
+    }
+}
+
 Photo.protTypes = {
     posts: PropTypes.array.isRequired,
-    onRemovePhoto: PropTypes.func.isRequired
+    //onRemovePhoto: PropTypes.func.isRequired
 }
 
 // Class component 
