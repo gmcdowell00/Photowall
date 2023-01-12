@@ -2,8 +2,9 @@ import React, { Component } from "react"; // Import react libraries through this
 import Title from "./Title";
 import PhotoWall from "./PhotoWall";
 import AddPhoto from "./AddPhoto";
-import { Route } from "react-router-dom";
-import { removePost } from "../redux/action";
+import { Route, Link } from "react-router-dom";
+import * as action from "../redux/action";
+
 
 class Main extends Component {
     constructor() {
@@ -21,25 +22,24 @@ class Main extends Component {
     // Responsible for rendering UI based
     // props or states that are placed into it
     // Never trigger any asychronous code, Ajax's request or anything of that nature. 
-    render() {
-        console.log(this.props);
+    render() {        
         return (
             <div>
+                <h1>
+                    <Link to='/'>PhotoWall</Link>
+                </h1>
                 <Route exact path="/" render={() =>
                 (
                     <div>
-                        <Title title={['Photowall']} />
+                    
                         {<PhotoWall {...this.props}/> }
                     </div>
                 )} />
-                {/* <Route path="/AddPhoto" render={({history}) =>
+                { <Route path="/AddPhoto" render={({history}) =>
                 (
-                    <div> <AddPhoto onAddPhoto={(addedPost) => {
-                        this.addPhoto(addedPost);
-                        history.push('/');
-                    }} />
+                    <div> <AddPhoto {...this.props} onHistory={history}/>
                     </div>
-                )} /> */}
+                )} /> }
 
 
 

@@ -2,7 +2,7 @@
 // Action creaters
 // Functions that return an action
 // Named export
-export function removePost(index) {
+export function removePhoto(index) {
     return {
         type: 'REMOVE_POST', // Action
         index: index         // Payload
@@ -10,3 +10,9 @@ export function removePost(index) {
 }
 
 // Add post
+export function addPhoto(post) {
+    return {
+        type: 'ADD_POST',
+        post: post
+    }
+}

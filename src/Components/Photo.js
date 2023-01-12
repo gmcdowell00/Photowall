@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 
 // Stateless function
 function Photo(props) {
+        console.log(props);
         const post = props.post;
         return <figure className='figure'>
             <img className='photo' src={post.imageLink} alt={post.description} crossOrigin="Anonymous"/>
             <figcaption><p>{post.description}</p></figcaption>
             <div className='button-container'>
                 <button className='remove-button' onClick={() => {
-                    props.removePost(props.index);
+                    props.removePhoto(props.index);
                 }}>Remove</button>
             </div>
         </figure>    
